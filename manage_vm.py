@@ -33,7 +33,7 @@ def start(vm_name):
         fd.seek(0)
         fd.truncate()
         for line in lines:
-            line = re.sub(r'([0-9]{1,3}.){4}\s*(.*%s.*)', '%s \g<2>'%(vm_name, vm_ip), line)
+            line = re.sub(r'([0-9]{1,3}.){4}\s*(.*%s.*)'%vm_name, '%s \g<2>'%vm_ip, line)
             fd.write(line)
 
     click.echo('Updated the hosts file.')
